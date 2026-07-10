@@ -14,7 +14,7 @@ Version-aware Eloquent model snippets for VS Code, VS Codium, and compatible edi
 
 - **Version-aware**: Detects your Laravel version, shows only applicable snippets, badges deprecated ones with replacement hints.
 - **82 snippets**: Everything from properties to polymorphic relations, pivot helpers, events, and change tracking.
-- **No config needed**: Works out of the box. Override with `laravelModelSnippets.laravelVersion` setting.
+- **No config needed**: Works out of the box. Override with `laravelEloquentSnippets.laravelVersion` setting.
 
 ## Compatibility
 
@@ -137,7 +137,7 @@ Model::rkr  → getRouteKeyName()
 Reads `require.laravel/framework` from `composer.json`. Override:
 
 ```json
-"laravelModelSnippets.laravelVersion": "11.0"
+"laravelEloquentSnippets.laravelVersion": "11.0"
 ```
 
 ## Requirements

@@ -30,7 +30,7 @@ function parseVersion(v?: string): number {
 }
 
 function getLaravelVersion(): string | undefined {
-    const config = vscode.workspace.getConfiguration('laravelModelSnippets');
+    const config = vscode.workspace.getConfiguration('laravelEloquentSnippets');
     const override = config.get<string>('laravelVersion', '');
     if (override) return override;
 
@@ -96,7 +96,7 @@ export function activate(context: vscode.ExtensionContext) {
                     if (s.placement === 'inside-class') {
                         item.insertText = '';
                         item.command = {
-                            command: 'laravelModelSnippets.insertTrait',
+                            command: 'laravelEloquentSnippets.insertTrait',
                             title: '',
                             arguments: [s.import || [], s.body.join('\n')]
                         };
@@ -104,7 +104,7 @@ export function activate(context: vscode.ExtensionContext) {
                         item.insertText = new vscode.SnippetString(s.body.join('\n'));
                         if (s.import && s.import.length > 0) {
                             item.command = {
-                                command: 'laravelModelSnippets.addImports',
+                                command: 'laravelEloquentSnippets.addImports',
                                 title: '',
                                 arguments: [s.import]
                             };
@@ -123,7 +123,7 @@ export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(provider);
 
     const importCmd = vscode.commands.registerCommand(
-        'laravelModelSnippets.addImports',
+        'laravelEloquentSnippets.addImports',
         async (imports: string[]) => {
             const editor = vscode.window.activeTextEditor;
             if (!editor) return;
@@ -147,7 +147,7 @@ export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(importCmd);
 
     const insertTraitCmd = vscode.commands.registerCommand(
-        'laravelModelSnippets.insertTrait',
+        'laravelEloquentSnippets.insertTrait',
         async (imports: string[], body: string) => {
             const editor = vscode.window.activeTextEditor;
             if (!editor) return;
