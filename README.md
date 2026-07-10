@@ -2,7 +2,7 @@
     <img src="images/icon.png" width="200">
 </p>
 
-<h1 align="center">Laravel Model Snippets</h1>
+<h1 align="center">Laravel Eloquent Model Snippets</h1>
 
 Version-aware Eloquent model snippets for VS Code, VS Codium, and compatible editors. Auto-detects Laravel version from `composer.json` and shows the right snippet pattern for your project.
 

@@ -1,6 +1,6 @@
 {
     "name": "laravel-eloquent-model-snippets",
-    "displayName": "Laravel Model Snippets",
+    "displayName": "Laravel Eloquent Model Snippets",
     "description": "Version-aware Laravel Eloquent Model snippets — auto-detects Laravel version from composer.json and shows version-appropriate snippets with deprecation badges.",
     "version": "0.0.1",
     "publisher": "YasirArafat",
@@ -64,7 +64,7 @@
     ],
     "contributes": {
         "configuration": {
-            "title": "Laravel Model Snippets",
+            "title": "Laravel Eloquent Model Snippets",
             "properties": {
                 "laravelModelSnippets.laravelVersion": {
                     "type": "string",
