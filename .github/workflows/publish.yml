@@ -21,8 +21,8 @@ jobs:
       - name: Package VSIX
         run: npx vsce package -o laravel-eloquent-model-snippets.vsix
 
-      - name: Publish to VS Code Marketplace
-        run: npx vsce publish --packagePath laravel-eloquent-model-snippets.vsix -p "${{ secrets.VSCE_PAT }}"
+      # - name: Publish to VS Code Marketplace
+      #   run: npx vsce publish --packagePath laravel-eloquent-model-snippets.vsix -p "${{ secrets.VSCE_PAT }}"
 
       - name: Publish to Open VSX
         run: npx ovsx publish laravel-eloquent-model-snippets.vsix -p "${{ secrets.OPEN_VSX_TOKEN }}"
