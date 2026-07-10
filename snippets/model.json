@@ -1,0 +1,1220 @@
+{
+	"_version": "3.0",
+	"_info": "Each snippet has versions.since (min Laravel version) and optional versions.deprecated + versions.alt (replacement prefix). Extension code reads composer.json and badges descriptions at runtime.",
+	"Laravel Model: Table": {
+		"prefix": "Model::t",
+		"body": [
+			"/**",
+			" * The table associated with the model.",
+			" *",
+			" * @var string",
+			" */",
+			"protected \\$table = '$0';"
+		],
+		"description": "Protected Table: The table associated with the model.",
+		"versions": {
+			"since": "3.0"
+		}
+	},
+	"Laravel Model: Primary Key": {
+		"prefix": "Model::pk",
+		"body": [
+			"/**",
+			" * The primary key associated with the table.",
+			" *",
+			" * @var string",
+			" */",
+			"protected \\$primaryKey = '$0';"
+		],
+		"description": "Primary Key: The primary key associated with the table.",
+		"versions": {
+			"since": "3.0"
+		}
+	},
+	"Laravel Model: Timestamps": {
+		"prefix": "Model::ts",
+		"body": [
+			"/**",
+			" * Indicates if the model should be timestamped.",
+			" *",
+			" * @var bool",
+			" */",
+			"public \\$timestamps = ${1:false};"
+		],
+		"description": "Timestamps: Indicates if the model should be timestamped.",
+		"versions": {
+			"since": "3.0"
+		}
+	},
+	"Laravel Model: Date Format": {
+		"prefix": "Model::df",
+		"body": [
+			"/**",
+			" * The storage format of the model's date columns.",
+			" *",
+			" * @var string",
+			" */",
+			"protected \\$dateFormat = '$0';"
+		],
+		"description": "Date Format: The storage format of the model's date columns.",
+		"versions": {
+			"since": "3.0"
+		}
+	},
+	"Laravel Model: Database Connection": {
+		"prefix": "Model::con",
+		"body": [
+			"/**",
+			" * The connection name for the model.",
+			" *",
+			" * @var string",
+			" */",
+			"protected \\$connection = '$0';"
+		],
+		"description": "Database Connection: The connection name for the model.",
+		"versions": {
+			"since": "3.0"
+		}
+	},
+	"Laravel Model: Attribute Casting (Property)": {
+		"prefix": "Model::c",
+		"body": [
+			"/**",
+			" * The attributes that should be cast to native types.",
+			" *",
+			" * @var array",
+			" */",
+			"protected \\$casts = [",
+			"\t'$1' => '${0:type}',",
+			"];"
+		],
+		"description": "Attribute Casting via $casts property.",
+		"versions": {
+			"since": "3.0",
+			"deprecated": "11.0",
+			"alt": "Model::cm"
+		}
+	},
+	"Laravel Model: Mass Assignment (Fillable)": {
+		"prefix": "Model::f",
+		"body": [
+			"/**",
+			" * The attributes that are mass assignable.",
+			" *",
+			" * @var array",
+			" */",
+			"protected \\$fillable = ['$0'];"
+		],
+		"description": "Mass Assignment (Fillable): The attributes that are mass assignable.",
+		"versions": {
+			"since": "3.0"
+		}
+	},
+	"Laravel Model: Guard Attributes": {
+		"prefix": "Model::g",
+		"body": [
+			"/**",
+			" * The attributes that aren't mass assignable.",
+			" *",
+			" * @var array",
+			" */",
+			"protected \\$guarded = [$0];"
+		],
+		"description": "Guard Attributes: The attributes that aren't mass assignable.",
+		"versions": {
+			"since": "3.0"
+		}
+	},
+	"Laravel Model: Dates": {
+		"prefix": "Model::d",
+		"body": [
+			"/**",
+			" * The attributes that should be mutated to dates.",
+			" *",
+			" * @var array",
+			" */",
+			"protected \\$dates = ['created_at', 'updated_at', '${0:deleted_at}'];"
+		],
+		"description": "Dates: The attributes that should be mutated to dates.",
+		"versions": {
+			"since": "3.0",
+			"deprecated": "10.0",
+			"alt": "use datetime cast"
+		}
+	},
+	"Laravel Model: Boot": {
+		"prefix": "Model::b",
+		"body": [
+			"/**",
+			" * The \"booting\" method of the model.",
+			" *",
+			" * @return void",
+			" */",
+			"protected static function boot()",
+			"{",
+			"\tparent::boot();",
+			"\t",
+			"\t$0",
+			"}"
+		],
+		"description": "Boot: The \"booting\" method of the model.",
+		"versions": {
+			"since": "3.0"
+		}
+	},
+	"Laravel Model: Local Scope": {
+		"prefix": "Model::s",
+		"body": [
+			"/**",
+			" * Scope a query to only include $1",
+			" *",
+			" * @param  \\Illuminate\\Database\\Eloquent\\Builder \\$query",
+			" * @return \\Illuminate\\Database\\Eloquent\\Builder",
+			" */",
+			"public function scope$1(\\$query)",
+			"{",
+			"\treturn \\$query->where('$2'$0);",
+			"}"
+		],
+		"description": "Local Scope: Query a local scope within your model.",
+		"versions": {
+			"since": "3.0"
+		}
+	},
+	"Laravel Model: One to One Relationship": {
+		"prefix": "Model::oo",
+		"body": [
+			"/**",
+			" * Get the $1 associated with the ${TM_FILENAME_BASE}",
+			" *",
+			" * @return \\Illuminate\\Database\\Eloquent\\Relations\\HasOne",
+			" */",
+			"public function $1()",
+			"{",
+			"\treturn \\$this->hasOne($0::class);",
+			"}"
+		],
+		"description": "One to One: Define a One to One relationship within your model.",
+		"versions": {
+			"since": "3.0"
+		}
+	},
+	"Laravel Model: Belongs To Relationship": {
+		"prefix": "Model::bt",
+		"body": [
+			"/**",
+			" * Get the $1 that owns the ${TM_FILENAME_BASE}",
+			" *",
+			" * @return \\Illuminate\\Database\\Eloquent\\Relations\\BelongsTo",
+			" */",
+			"public function $1()",
+			"{",
+			"\treturn \\$this->belongsTo($0::class);",
+			"}"
+		],
+		"description": "Belongs To: Define a Belongs To relationship within your model.",
+		"versions": {
+			"since": "3.0"
+		}
+	},
+	"Laravel Model: One to Many": {
+		"prefix": "Model::om",
+		"body": [
+			"/**",
+			" * Get all of the $1 for the ${TM_FILENAME_BASE}",
+			" *",
+			" * @return \\Illuminate\\Database\\Eloquent\\Relations\\HasMany",
+			" */",
+			"public function $1()",
+			"{",
+			"\treturn \\$this->hasMany($0::class);",
+			"}"
+		],
+		"description": "One to Many: Define a One to Many relationship within your model.",
+		"versions": {
+			"since": "3.0"
+		}
+	},
+	"Laravel Model: Many to Many": {
+		"prefix": "Model::mm",
+		"body": [
+			"/**",
+			" * The $1 that belong to the ${TM_FILENAME_BASE}",
+			" *",
+			" * @return \\Illuminate\\Database\\Eloquent\\Relations\\BelongsToMany",
+			" */",
+			"public function $1()",
+			"{",
+			"\treturn \\$this->belongsToMany($0::class);",
+			"}"
+		],
+		"description": "Many to Many: Define a Many to Many relationship within your model.",
+		"versions": {
+			"since": "3.0"
+		}
+	},
+	"Laravel Model: Belongs to Many": {
+		"prefix": "Model::btm",
+		"body": [
+			"/**",
+			" * The $1 that belong to the ${TM_FILENAME_BASE}",
+			" *",
+			" * @return \\Illuminate\\Database\\Eloquent\\Relations\\BelongsToMany",
+			" */",
+			"public function $1()",
+			"{",
+			"\treturn \\$this->belongsToMany($0::class);",
+			"}"
+		],
+		"description": "Belongs to Many: Define a Belongs to Many relationship within your model.",
+		"versions": {
+			"since": "3.0"
+		}
+	},
+	"Laravel Model: Has Many Through": {
+		"prefix": "Model::hmt",
+		"body": [
+			"/**",
+			" * Get all of the $1 for the ${TM_FILENAME_BASE}",
+			" *",
+			" * @return \\Illuminate\\Database\\Eloquent\\Relations\\HasManyThrough",
+			" */",
+			"public function $1()",
+			"{",
+			"\treturn \\$this->hasManyThrough($0::class);",
+			"}"
+		],
+		"description": "Has Many Through: Define a Has Many Through relationship within your model.",
+		"versions": {
+			"since": "3.0"
+		}
+	},
+	"Laravel Model: Has One Through": {
+		"prefix": "Model::hot",
+		"body": [
+			"/**",
+			" * Get the $1 associated with the ${TM_FILENAME_BASE}",
+			" *",
+			" * @return \\Illuminate\\Database\\Eloquent\\Relations\\HasOneThrough",
+			" */",
+			"public function $1()",
+			"{",
+			"\treturn \\$this->hasOneThrough($2::class, $3::class);",
+			"}"
+		],
+		"description": "Has One Through: Define a Has One Through relationship within your model.",
+		"versions": {
+			"since": "5.8"
+		}
+	},
+	"Laravel Model: Hidden": {
+		"prefix": "Model::h",
+		"body": [
+			"/**",
+			" * The attributes that should be hidden for serialization.",
+			" *",
+			" * @var array",
+			" */",
+			"protected \\$hidden = ['$0'];"
+		],
+		"description": "Hidden: The attributes that should be hidden for serialization.",
+		"versions": {
+			"since": "3.0"
+		}
+	},
+	"Laravel Model: Visible": {
+		"prefix": "Model::v",
+		"body": [
+			"/**",
+			" * The attributes that should be visible in serialization.",
+			" *",
+			" * @var array",
+			" */",
+			"protected \\$visible = ['$0'];"
+		],
+		"description": "Visible: The attributes that should be visible in serialization.",
+		"versions": {
+			"since": "3.0"
+		}
+	},
+	"Laravel Model: Appends": {
+		"prefix": "Model::ap",
+		"body": [
+			"/**",
+			" * The accessors to append to the model's array form.",
+			" *",
+			" * @var array",
+			" */",
+			"protected \\$appends = ['$0'];"
+		],
+		"description": "Appends: The accessors to append to the model's array form.",
+		"versions": {
+			"since": "4.0"
+		}
+	},
+	"Laravel Model: Touches": {
+		"prefix": "Model::tc",
+		"body": [
+			"/**",
+			" * The relationships that should be touched on save.",
+			" *",
+			" * @var array",
+			" */",
+			"protected \\$touches = [$0];"
+		],
+		"description": "Touches: The relationships that should be touched on save.",
+		"versions": {
+			"since": "3.0"
+		}
+	},
+	"Laravel Model: Incrementing": {
+		"prefix": "Model::i",
+		"body": [
+			"/**",
+			" * Indicates if the IDs are auto-incrementing.",
+			" *",
+			" * @var bool",
+			" */",
+			"public \\$incrementing = ${1:false};"
+		],
+		"description": "Incrementing: Indicates if the IDs are auto-incrementing.",
+		"versions": {
+			"since": "3.0"
+		}
+	},
+	"Laravel Model: KeyType": {
+		"prefix": "Model::kt",
+		"body": [
+			"/**",
+			" * The \"type\" of the auto-incrementing ID.",
+			" *",
+			" * @var string",
+			" */",
+			"protected \\$keyType = '${1:string}';"
+		],
+		"description": "KeyType: The \"type\" of the auto-incrementing ID.",
+		"versions": {
+			"since": "4.0"
+		}
+	},
+	"Laravel Model: PerPage": {
+		"prefix": "Model::pp",
+		"body": [
+			"/**",
+			" * The number of models to return for pagination.",
+			" *",
+			" * @var int",
+			" */",
+			"protected \\$perPage = $0;"
+		],
+		"description": "PerPage: The number of models to return for pagination.",
+		"versions": {
+			"since": "5.0"
+		}
+	},
+	"Laravel Model: Created At": {
+		"prefix": "Model::cat",
+		"body": [
+			"/**",
+			" * The name of the \"created at\" column.",
+			" *",
+			" * @var string",
+			" */",
+			"const CREATED_AT = '${1:created_at}';$0"
+		],
+		"description": "Created At: The name of the \"created at\" column.",
+		"versions": {
+			"since": "3.0"
+		}
+	},
+	"Laravel Model: Updated At": {
+		"prefix": "Model::uat",
+		"body": [
+			"/**",
+			" * The name of the \"updated at\" column.",
+			" *",
+			" * @var string",
+			" */",
+			"const UPDATED_AT = '${1:updated_at}';$0"
+		],
+		"description": "Updated At: The name of the \"updated at\" column.",
+		"versions": {
+			"since": "3.0"
+		}
+	},
+	"Laravel Model: Deleted At": {
+		"prefix": "Model::dat",
+		"body": [
+			"/**",
+			" * The name of the \"deleted at\" column.",
+			" *",
+			" * @var string",
+			" */",
+			"const DELETED_AT = '${1:deleted_at}';$0"
+		],
+		"description": "Deleted At: The name of the \"deleted at\" column.",
+		"versions": {
+			"since": "3.0"
+		}
+	},
+	"Laravel Model: Dispatches Events": {
+		"prefix": "Model::de",
+		"body": [
+			"/**",
+			" * The event map for the model.",
+			" *",
+			" * @var array",
+			" */",
+			"protected \\$dispatchesEvents = [",
+			"\t'$1' => $2,",
+			"];"
+		],
+		"description": "Dispatches Events: Map model events to listener classes.",
+		"versions": {
+			"since": "5.8"
+		}
+	},
+	"Laravel Model: Accessor (Old Style)": {
+		"prefix": "Model::ac",
+		"body": [
+			"/**",
+			" * Get the $1",
+			" *",
+			" * @param  string  \\$value",
+			" * @return ${3:string}",
+			" */",
+			"public function get$1Attribute(\\$value)",
+			"{",
+			"\treturn ${2:\\$value};",
+			"}"
+		],
+		"description": "Accessor: Define an accessor using old getXAttribute pattern.",
+		"versions": {
+			"since": "3.0",
+			"deprecated": "9.0",
+			"alt": "Model::ac9"
+		}
+	},
+	"Laravel Model: Mutator (Old Style)": {
+		"prefix": "Model::mu",
+		"body": [
+			"/**",
+			" * Set the $1",
+			" *",
+			" * @param  string  \\$value",
+			" * @return ${4:void}",
+			" */",
+			"public function set$1Attribute(\\$value)",
+			"{",
+			"\t\\$this->attributes['$2'] = ${3:\\$value};",
+			"}"
+		],
+		"description": "Mutator: Define a mutator using old setXAttribute pattern.",
+		"versions": {
+			"since": "3.0",
+			"deprecated": "9.0",
+			"alt": "Model::mu9"
+		}
+	},
+	"Laravel Model: Accessor (Attribute)": {
+		"prefix": "Model::ac9",
+		"import": ["use Illuminate\\Database\\Eloquent\\Casts\\Attribute;"],
+		"body": [
+			"/**",
+			" * Get the $1",
+			" *",
+			" * @return \\Illuminate\\Database\\Eloquent\\Casts\\Attribute",
+			" */",
+			"protected function $1(): Attribute",
+			"{",
+			"\treturn Attribute::make(",
+			"\t\tget: fn (\\$value) => ${2:\\$value},",
+			"\t);",
+			"}"
+		],
+		"description": "Accessor: Define an accessor using Attribute::make(). (L9+)",
+		"versions": {
+			"since": "9.0"
+		}
+	},
+	"Laravel Model: Mutator (Attribute)": {
+		"prefix": "Model::mu9",
+		"import": ["use Illuminate\\Database\\Eloquent\\Casts\\Attribute;"],
+		"body": [
+			"/**",
+			" * Set the $1",
+			" *",
+			" * @return \\Illuminate\\Database\\Eloquent\\Casts\\Attribute",
+			" */",
+			"protected function $1(): Attribute",
+			"{",
+			"\treturn Attribute::make(",
+			"\t\tset: fn (\\$value) => ${2:\\$value},",
+			"\t);",
+			"}"
+		],
+		"description": "Mutator: Define a mutator using Attribute::make(). (L9+)",
+		"versions": {
+			"since": "9.0"
+		}
+	},
+	"Laravel Model: Accessor & Mutator (Attribute)": {
+		"prefix": "Model::acm",
+		"import": ["use Illuminate\\Database\\Eloquent\\Casts\\Attribute;"],
+		"body": [
+			"/**",
+			" * Get/Set the $1",
+			" *",
+			" * @return \\Illuminate\\Database\\Eloquent\\Casts\\Attribute",
+			" */",
+			"protected function $1(): Attribute",
+			"{",
+			"\treturn Attribute::make(",
+			"\t\tget: fn (\\$value) => ${2:\\$value},",
+			"\t\tset: fn (\\$value) => ${3:\\$value},",
+			"\t);",
+			"}"
+		],
+		"description": "Accessor & Mutator: Define both using Attribute::make(). (L9+)",
+		"versions": {
+			"since": "9.0"
+		}
+	},
+	"Laravel Model: Casts Method": {
+		"prefix": "Model::cm",
+		"body": [
+			"/**",
+			" * Get the attributes that should be cast.",
+			" *",
+			" * @return array<string, string>",
+			" */",
+			"protected function casts(): array",
+			"{",
+			"\treturn [",
+			"\t\t'$1' => '${0:type}',",
+			"\t];",
+			"}"
+		],
+		"description": "Casts: Define attribute casting via casts() method. Supports static casters. (L11+)",
+		"versions": {
+			"since": "11.0"
+		}
+	},
+	"Laravel Model: Booted Method": {
+		"prefix": "Model::bd",
+		"body": [
+			"/**",
+			" * The \"booted\" method of the model.",
+			" *",
+			" * @return void",
+			" */",
+			"protected static function booted()",
+			"{",
+			"\tparent::booted();",
+			"\t",
+			"\t$0",
+			"}"
+		],
+		"description": "Booted: The \"booted\" method (cleaner than boot(), no parent call needed). (L7+)",
+		"versions": {
+			"since": "7.0"
+		}
+	},
+	"Laravel Model: HasFactory Trait": {
+		"prefix": "Model::ff",
+		"placement": "inside-class",
+		"import": ["use Illuminate\\Database\\Eloquent\\Factories\\HasFactory;"],
+		"body": [
+			"use HasFactory;$0"
+		],
+		"description": "HasFactory: Import and use the HasFactory trait. (L8+)",
+		"versions": {
+			"since": "8.0"
+		}
+	},
+	"Laravel Model: SoftDeletes Trait": {
+		"prefix": "Model::sft",
+		"placement": "inside-class",
+		"import": ["use Illuminate\\Database\\Eloquent\\SoftDeletes;"],
+		"body": [
+			"use SoftDeletes;$0"
+		],
+		"description": "SoftDeletes: Import and use the SoftDeletes trait. (L5+)",
+		"versions": {
+			"since": "5.0"
+		}
+	},
+	"Laravel Model: Hashed Cast": {
+		"prefix": "Model::hsh",
+		"body": [
+			"'$1' => 'hashed',"
+		],
+		"description": "Hashed Cast: Use within $casts or casts() method. (L10+)",
+		"versions": {
+			"since": "10.0"
+		}
+	},
+	"Laravel Model: Enum Cast (AsEnumCollection)": {
+		"prefix": "Model::enm",
+		"import": ["use Illuminate\\Database\\Eloquent\\Casts\\AsEnumCollection;"],
+		"body": [
+			"'$1' => AsEnumCollection::of(${2:App\\Enums\\Role}::class),"
+		],
+		"description": "Enum Cast: Add AsEnumCollection cast entry. (L11+)",
+		"versions": {
+			"since": "11.0"
+		}
+	},
+	"Laravel Model: HasUuids Trait": {
+		"prefix": "Model::uid",
+		"placement": "inside-class",
+		"import": ["use Illuminate\\Database\\Eloquent\\Concerns\\HasUuids;"],
+		"body": [
+			"use HasUuids;$0"
+		],
+		"description": "HasUuids: Import and use the HasUuids trait. (L9+)",
+		"versions": {
+			"since": "9.0"
+		}
+	},
+	"Laravel Model: HasUlids Trait": {
+		"prefix": "Model::uld",
+		"placement": "inside-class",
+		"import": ["use Illuminate\\Database\\Eloquent\\Concerns\\HasUlids;"],
+		"body": [
+			"use HasUlids;$0"
+		],
+		"description": "HasUlids: Import and use the HasUlids trait. (L9+)",
+		"versions": {
+			"since": "9.0"
+		}
+	},
+	"Laravel Model: Prevent Lazy Loading": {
+		"prefix": "Model::pls",
+		"body": [
+			"/**",
+			" * Prevent lazy loading in this environment.",
+			" *",
+			" * @return void",
+			" */",
+			"protected static function booted()",
+			"{",
+			"\tparent::booted();",
+			"\tModel::preventLazyLoading(! \\$this->app->isProduction());",
+			"}"
+		],
+		"description": "Prevent Lazy Loading: Add preventLazyLoading call to AppServiceProvider or booted. (L8+)",
+		"versions": {
+			"since": "8.0"
+		}
+	},
+	"Laravel Model: Route Key Name": {
+		"prefix": "Model::rkr",
+		"body": [
+			"/**",
+			" * Get the route key for the model.",
+			" *",
+			" * @return string",
+			" */",
+			"public function getRouteKeyName()",
+			"{",
+			"\treturn '$0';",
+			"}"
+		],
+		"description": "Route Key Name: Define a custom route key name. (L5+)",
+		"versions": {
+			"since": "5.0"
+		}
+	},
+	"Laravel Model: Eager Load (With)": {
+		"prefix": "Model::w",
+		"body": [
+			"/**",
+			" * The relationships that should always be loaded.",
+			" *",
+			" * @var array",
+			" */",
+			"protected \\$with = ['$0'];"
+		],
+		"description": "Eager Load: Relationships to always eager load.",
+		"versions": {
+			"since": "5.0"
+		}
+	},
+	"Laravel Model: Default Attributes": {
+		"prefix": "Model::atr",
+		"body": [
+			"/**",
+			" * The model's default values for attributes.",
+			" *",
+			" * @var array",
+			" */",
+			"protected \\$attributes = [",
+			"\t'$1' => '${0:default}',",
+			"];"
+		],
+		"description": "Default Attributes: Default values for new model instances.",
+		"versions": {
+			"since": "5.0"
+		}
+	},
+	"Laravel Model: Morph One": {
+		"prefix": "Model::mo",
+		"body": [
+			"/**",
+			" * Get the $1 associated with the ${TM_FILENAME_BASE}.",
+			" *",
+			" * @return \\Illuminate\\Database\\Eloquent\\Relations\\MorphOne",
+			" */",
+			"public function $1()",
+			"{",
+			"\treturn \\$this->morphOne($0::class, '$2');",
+			"}"
+		],
+		"description": "Morph One: Define a one-to-one polymorphic relationship.",
+		"versions": {
+			"since": "5.0"
+		}
+	},
+	"Laravel Model: Morph Many": {
+		"prefix": "Model::mmo",
+		"body": [
+			"/**",
+			" * Get all of the $1 for the ${TM_FILENAME_BASE}.",
+			" *",
+			" * @return \\Illuminate\\Database\\Eloquent\\Relations\\MorphMany",
+			" */",
+			"public function $1()",
+			"{",
+			"\treturn \\$this->morphMany($0::class, '$2');",
+			"}"
+		],
+		"description": "Morph Many: Define a one-to-many polymorphic relationship.",
+		"versions": {
+			"since": "5.0"
+		}
+	},
+	"Laravel Model: Morph To": {
+		"prefix": "Model::mt",
+		"body": [
+			"/**",
+			" * Get the parent $1 model.",
+			" *",
+			" * @return \\Illuminate\\Database\\Eloquent\\Relations\\MorphTo",
+			" */",
+			"public function $1()",
+			"{",
+			"\treturn \\$this->morphTo();",
+			"}"
+		],
+		"description": "Morph To: Define the inverse polymorphic relationship.",
+		"versions": {
+			"since": "5.0"
+		}
+	},
+	"Laravel Model: Morph To Many": {
+		"prefix": "Model::mtm",
+		"body": [
+			"/**",
+			" * Get all $1 for the ${TM_FILENAME_BASE}.",
+			" *",
+			" * @return \\Illuminate\\Database\\Eloquent\\Relations\\MorphToMany",
+			" */",
+			"public function $1()",
+			"{",
+			"\treturn \\$this->morphToMany($0::class, '$2');",
+			"}"
+		],
+		"description": "Morph To Many: Define many-to-many polymorphic relationship.",
+		"versions": {
+			"since": "5.0"
+		}
+	},
+	"Laravel Model: Morphed By Many": {
+		"prefix": "Model::mbm",
+		"body": [
+			"/**",
+			" * Get all $1 for the ${TM_FILENAME_BASE}.",
+			" *",
+			" * @return \\Illuminate\\Database\\Eloquent\\Relations\\MorphToMany",
+			" */",
+			"public function $1()",
+			"{",
+			"\treturn \\$this->morphedByMany($0::class, '$2');",
+			"}"
+		],
+		"description": "Morphed By Many: Define inverse many-to-many polymorphic.",
+		"versions": {
+			"since": "5.0"
+		}
+	},
+	"Laravel Model: With Pivot": {
+		"prefix": "Model::wp",
+		"body": [
+			"\t->withPivot('$0')"
+		],
+		"description": "With Pivot: Include extra pivot columns.",
+		"versions": {
+			"since": "5.0"
+		}
+	},
+	"Laravel Model: Pivot As": {
+		"prefix": "Model::pa",
+		"body": [
+			"\t->as('$0')"
+		],
+		"description": "Pivot As: Rename the pivot accessor.",
+		"versions": {
+			"since": "5.0"
+		}
+	},
+	"Laravel Model: Pivot Using": {
+		"prefix": "Model::pu",
+		"body": [
+			"\t->using($0::class)"
+		],
+		"description": "Pivot Using: Use a custom pivot model.",
+		"versions": {
+			"since": "5.0"
+		}
+	},
+	"Laravel Model: Pivot Timestamps": {
+		"prefix": "Model::pts",
+		"body": [
+			"\t->withTimestamps()"
+		],
+		"description": "Pivot Timestamps: Auto-manage pivot timestamps.",
+		"versions": {
+			"since": "5.0"
+		}
+	},
+	"Laravel Model: Pivot Where": {
+		"prefix": "Model::pwh",
+		"body": [
+			"\t->wherePivot('$0', '${1:=}', '${2:value}')"
+		],
+		"description": "Pivot Where: Filter belongsToMany by pivot column.",
+		"versions": {
+			"since": "5.0"
+		}
+	},
+	"Laravel Model: Is Dirty": {
+		"prefix": "Model::id",
+		"body": [
+			"\\$this->isDirty('$0')"
+		],
+		"description": "Is Dirty: Check if attribute was modified.",
+		"versions": {
+			"since": "5.0"
+		}
+	},
+	"Laravel Model: Was Changed": {
+		"prefix": "Model::wc",
+		"body": [
+			"\\$this->wasChanged('$0')"
+		],
+		"description": "Was Changed: Check if attribute changed on last save.",
+		"versions": {
+			"since": "5.0"
+		}
+	},
+	"Laravel Model: Get Original": {
+		"prefix": "Model::gor",
+		"body": [
+			"\\$this->getOriginal('$0')"
+		],
+		"description": "Get Original: Get original value before changes.",
+		"versions": {
+			"since": "5.0"
+		}
+	},
+	"Laravel Model: Fresh": {
+		"prefix": "Model::fsh",
+		"body": [
+			"\\$this->fresh()"
+		],
+		"description": "Fresh: Re-retrieve the model from the database.",
+		"versions": {
+			"since": "5.0"
+		}
+	},
+	"Laravel Model: Refresh": {
+		"prefix": "Model::rf",
+		"body": [
+			"\\$this->refresh()"
+		],
+		"description": "Refresh: Re-hydrate the existing model instance.",
+		"versions": {
+			"since": "5.0"
+		}
+	},
+	"Laravel Model: Model Compare Is": {
+		"prefix": "Model::is",
+		"body": [
+			"\\$this->is(\\$${1:model})"
+		],
+		"description": "Is: Compare two models (same table and PK).",
+		"versions": {
+			"since": "5.0"
+		}
+	},
+	"Laravel Model: Where Belongs To": {
+		"prefix": "Model::wbt",
+		"body": [
+			"\\$this->whereBelongsTo(\\$${1:parent}, '$2')"
+		],
+		"description": "Where Belongs To: Query the belongsTo relationship.",
+		"versions": {
+			"since": "8.0"
+		}
+	},
+	"Laravel Model: Replicate": {
+		"prefix": "Model::rp",
+		"body": [
+			"\\$this->replicate(['$0'])"
+		],
+		"description": "Replicate: Create a fresh copy of the model.",
+		"versions": {
+			"since": "5.0"
+		}
+	},
+	"Laravel Model: Make Visible": {
+		"prefix": "Model::mv",
+		"body": [
+			"\\$this->makeVisible(['$0'])"
+		],
+		"description": "Make Visible: Temporarily make hidden attributes visible.",
+		"versions": {
+			"since": "5.0"
+		}
+	},
+	"Laravel Model: Make Hidden": {
+		"prefix": "Model::mh",
+		"body": [
+			"\\$this->makeHidden(['$0'])"
+		],
+		"description": "Make Hidden: Temporarily make visible attributes hidden.",
+		"versions": {
+			"since": "5.0"
+		}
+	},
+	"Laravel Model: Serialize Date": {
+		"prefix": "Model::sd",
+		"body": [
+			"/**",
+			" * Customize the date format for serialization.",
+			" *",
+			" * @param  \\DateTimeInterface  \\$date",
+			" * @return string",
+			" */",
+			"protected function serializeDate(\\DateTimeInterface \\$date)",
+			"{",
+			"\treturn \\$date->format('${1:Y-m-d H:i:s}');",
+			"}"
+		],
+		"description": "Serialize Date: Customize date format for JSON serialization.",
+		"versions": {
+			"since": "5.0"
+		}
+	},
+	"Laravel Model: Without Events": {
+		"prefix": "Model::we",
+		"body": [
+			"\\$model = Model::withoutEvents(function () {",
+			"\treturn \\$0;",
+			"});"
+		],
+		"description": "Without Events: Execute callable without firing model events.",
+		"versions": {
+			"since": "8.0"
+		}
+	},
+	"Laravel Model: Observe": {
+		"prefix": "Model::obs",
+		"body": [
+			"\\$0::observe(${1:App\\\\\\\\Observers\\\\\\\\${TM_FILENAME_BASE}Observer}::class);"
+		],
+		"description": "Observe: Register an observer class.",
+		"versions": {
+			"since": "5.0"
+		}
+	},
+	"Laravel Model: Creating Event": {
+		"prefix": "Model::cr",
+		"body": [
+			"use Illuminate\\Database\\Eloquent\\Builder;",
+			"",
+			"static::creating(function (\\$model) {",
+			"\t${0://}",
+			"});"
+		],
+		"description": "Creating: Register a creating event callback.",
+		"versions": {
+			"since": "5.0"
+		}
+	},
+	"Laravel Model: Created Event": {
+		"prefix": "Model::cd",
+		"body": [
+			"static::created(function (\\$model) {",
+			"\t${0://}",
+			"});"
+		],
+		"description": "Created: Register a created event callback.",
+		"versions": {
+			"since": "5.0"
+		}
+	},
+	"Laravel Model: Saving Event": {
+		"prefix": "Model::sv",
+		"body": [
+			"static::saving(function (\\$model) {",
+			"\t${0://}",
+			"});"
+		],
+		"description": "Saving: Register a saving event callback.",
+		"versions": {
+			"since": "5.0"
+		}
+	},
+	"Laravel Model: Deleting Event": {
+		"prefix": "Model::dl",
+		"body": [
+			"static::deleting(function (\\$model) {",
+			"\t${0://}",
+			"});"
+		],
+		"description": "Deleting: Register a deleting event callback.",
+		"versions": {
+			"since": "5.0"
+		}
+	},
+	"Laravel Model: Add Global Scope": {
+		"prefix": "Model::gs",
+		"body": [
+			"static::addGlobalScope('$1', function (\\Illuminate\\Database\\Eloquent\\Builder \\$query) {",
+			"\t\\$query->where('$2', ${0:true});",
+			"});"
+		],
+		"description": "Global Scope: Register an inline global scope.",
+		"versions": {
+			"since": "5.0"
+		}
+	},
+	"Laravel Model: Touch": {
+		"prefix": "Model::tch",
+		"body": [
+			"/**",
+			" * Touch the parent relationships.",
+			" *",
+			" * @return void",
+			" */",
+			"public function touch()",
+			"{",
+			"\tparent::touch();",
+			"\t\\$0",
+			"}"
+		],
+		"description": "Touch: Manually update the updated_at timestamp.",
+		"versions": {
+			"since": "5.0"
+		}
+	},
+	"Laravel Model: Should Be Strict": {
+		"prefix": "Model::sbs",
+		"body": [
+			"Model::shouldBeStrict();"
+		],
+		"description": "Should Be Strict: Enable all strict modes at once. (L11+)",
+		"versions": {
+			"since": "11.0"
+		}
+	},
+	"Laravel Model: New Collection": {
+		"prefix": "Model::ncl",
+		"body": [
+			"/**",
+			" * Create a new Eloquent Collection instance.",
+			" *",
+			" * @param  array  \\$models",
+			" * @return \\Illuminate\\Database\\Eloquent\\Collection",
+			" */",
+			"public function newCollection(array \\$models = [])",
+			"{",
+			"\treturn parent::newCollection(\\$models);",
+			"}"
+		],
+		"description": "New Collection: Return a custom Collection subclass.",
+		"versions": {
+			"since": "5.0"
+		}
+	},
+	"Laravel Model: Pivot Order By": {
+		"prefix": "Model::pob",
+		"body": [
+			"\t->orderByPivot('$0', '${1:asc}')"
+		],
+		"description": "Order By Pivot: Order belongsToMany by pivot column.",
+		"versions": {
+			"since": "5.0"
+		}
+	},
+	"Laravel Model: Has One of Many": {
+		"prefix": "Model::hom",
+		"body": [
+			"\treturn \\$this->hasOne($0::class)->ofMany('$1', '${2:max}');"
+		],
+		"description": "Has One of Many: Define hasOne-of-many (e.g. latest). (L8+)",
+		"versions": {
+			"since": "8.0"
+		}
+	},
+	"Laravel Model: Save and Retrieve": {
+		"prefix": "Model::svr",
+		"body": [
+			"/* Save and retrieve the model in one call */",
+			"\\$model = Model::create(\\$data);",
+			"\\$model->save();",
+			"\\$model->fresh();$0"
+		],
+		"description": "Save and Retrieve: Save and re-retrieve the model.",
+		"versions": {
+			"since": "5.0"
+		}
+	},
+	"Laravel Model: Load with Count": {
+		"prefix": "Model::lc",
+		"body": [
+			"\\$this->loadCount('$0')"
+		],
+		"description": "Load Count: Eager load relationship counts on existing model.",
+		"versions": {
+			"since": "5.0"
+		}
+	},
+	"Laravel Model: Prevent Lazy Loading (AppServiceProvider)": {
+		"prefix": "Model::plp",
+		"body": [
+			"<?php",
+			"",
+			"namespace App\\Providers;",
+			"",
+			"use Illuminate\\Database\\Eloquent\\Model;",
+			"use Illuminate\\Support\\ServiceProvider;",
+			"",
+			"class AppServiceProvider extends ServiceProvider",
+			"{",
+			"    public function boot(): void",
+			"    {",
+			"        Model::preventLazyLoading(! \\$this->app->isProduction());",
+			"        // Model::preventSilentlyDiscardingAttributes();",
+			"        // Model::preventAccessingMissingAttributes();",
+			"    }",
+			"}"
+		],
+		"description": "Prevent Lazy Loading: Setup in AppServiceProvider. (L8+)",
+		"versions": {
+			"since": "8.0"
+		}
+	}
+}

@@ -1,0 +1,77 @@
+{
+    "name": "laravel-model-snippets",
+    "displayName": "Laravel Model Snippets",
+    "description": "Version-aware Laravel Eloquent Model snippets — auto-detects Laravel version from composer.json and shows version-appropriate snippets with deprecation badges.",
+    "version": "0.0.1",
+    "publisher": "yeasherarafath",
+    "main": "./out/extension.js",
+    "engines": {
+        "vscode": "^1.60.0"
+    },
+    "activationEvents": [
+        "onLanguage:php"
+    ],
+    "scripts": {
+        "compile": "tsc -p ./tsconfig.json",
+        "build": "npm run compile",
+        "watch": "tsc -watch -p ./tsconfig.json",
+        "lint": "tsc --noEmit --pretty",
+        "vscode:prepublish": "npm run compile"
+    },
+    "devDependencies": {
+        "@types/node": "^26.1.1",
+        "@types/vscode": "^1.60.0",
+        "typescript": "^5.0.0"
+    },
+    "author": {
+        "name": "Yasir Arafat",
+        "url": "https://github.com/yeasherarafath"
+    },
+    "homepage": "https://github.com/yeasherarafath/laravel-model-snippets",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/yeasherarafath/laravel-model-snippets"
+    },
+    "bugs": {
+        "url": "https://github.com/yeasherarafath/laravel-model-snippets/issues"
+    },
+    "keywords": [
+        "laravel",
+        "model",
+        "snippet",
+        "eloquent",
+        "template",
+        "php",
+        "orm",
+        "version-aware",
+        "vscodium",
+        "vscode-compatible"
+    ],
+    "capabilities": {
+        "untrustedWorkspaces": {
+            "supported": true
+        }
+    },
+    "icon": "images/icon.png",
+    "galleryBanner": {
+        "color": "#f66f62",
+        "theme": "dark"
+    },
+    "categories": [
+        "Programming Languages",
+        "Snippets",
+        "Formatters"
+    ],
+    "contributes": {
+        "configuration": {
+            "title": "Laravel Model Snippets",
+            "properties": {
+                "laravelModelSnippets.laravelVersion": {
+                    "type": "string",
+                    "default": "",
+                    "description": "Override auto-detected Laravel version (e.g. '11.0'). Leave empty to detect from composer.json."
+                }
+            }
+        }
+    }
+}
