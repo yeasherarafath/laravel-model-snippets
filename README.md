@@ -24,6 +24,10 @@ Works in **VS Code**, **VS Codium**, **Cursor**, **Windsurf**, and any editor co
 
 Type `Model::` in any PHP file and pick from the autocomplete list.
 
+<p align="center">
+    <img src="images/example.gif" alt="Laravel Model Snippets demo" width="700">
+</p>
+
 ### Properties & Config
 ```
 Model::t    → protected $table
