@@ -1,5 +1,5 @@
 {
-    "name": "laravel-model-snippets",
+    "name": "laravel-eloquent-model-snippets",
     "displayName": "Laravel Model Snippets",
     "description": "Version-aware Laravel Eloquent Model snippets — auto-detects Laravel version from composer.json and shows version-appropriate snippets with deprecation badges.",
     "version": "0.0.1",

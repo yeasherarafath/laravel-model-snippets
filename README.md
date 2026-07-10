@@ -6,8 +6,8 @@
 
 Version-aware Eloquent model snippets for VS Code, VS Codium, and compatible editors. Auto-detects Laravel version from `composer.json` and shows the right snippet pattern for your project.
 
-[![VS Code Marketplace](https://img.shields.io/badge/VS%20Code-Marketplace-007ACC?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=yeasherarafath.laravel-model-snippets)
-[![Open VSX](https://img.shields.io/badge/Open%20VSX-Registry-9146FF?style=flat-square)](https://open-vsx.org/extension/yeasherarafath/laravel-model-snippets)
+[![VS Code Marketplace](https://img.shields.io/badge/VS%20Code-Marketplace-007ACC?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=YasirArafat.laravel-eloquent-model-snippets)
+[![Open VSX](https://img.shields.io/badge/Open%20VSX-Registry-9146FF?style=flat-square)](https://open-vsx.org/extension/YasirArafat/laravel-eloquent-model-snippets)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE.md)
 
 ## Features
